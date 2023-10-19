@@ -1,0 +1,40 @@
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #f1f1f1;
+            }
+
+            #non-conformance_type, #call_sequences, #dynamic_model, #involved_components, #interpretations, #interpretation_text, #interpretation_basis {
+                background-color: #ffffff;
+                padding: 20px;
+                margin: 20px;
+            }
+
+            #dynamic_ncf_code_evidences, #dynamic_ncf_possible_sequences, #dynamic_ncf_occurred_sequences, #static_ncf_dynamic_model_calls, #call_details_occurred_sequences, #model {
+                background-color: #ffffff;
+                padding: 20px;
+                margin: 20px;
+                border: 2px solid #000000;
+                border-radius: 10px;
+            }
+
+            #model_svg {
+                width: 100%;
+                display: inline-block;
+                position: relative;
+            }
+
+            svg {
+                width: 100%;
+                height: auto;
+                display: inline-block;
+                position: relative;
+            }
+
+            #static_ncf_svg {
+                width: 70%;
+                height: 800px;
+                display: inline-block;
+            }
+
+            

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Model Non-conformance Interpretation</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="non-conformance_type">
+      <h1>Non-conformance type: dynamic</h1>
+      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two components during run-time.</p>
+    </div>
+    <div id="involved_components">
+      <h2>Involved components</h2>
+      <ul>
+        <li>admin-server</li>
+        <li>discovery-server</li>
+      </ul>
+    </div>
+    <div id="interpretations">
+      <h2>Potential interpretations for the non-conformance</h2>
+      <div id="interpretation_text">
+        <h3>Unused / Unreachable Code</h3>
+        <p>The line of code that is responsible for triggering a flow of communication between the two component is not reachable or the line is not used at all in the implementation. It could be the case that the function that should call this line is not implemented, commented out or wrapped in a code-block (e.g. if-else statement or switch statement) that is never executed.</p>
+      </div>
+      <div id="interpretation_text">
+        <h3>Misconfiguration of Service</h3>
+        <p>One of the most common causes for failures in microservice systems is misconfiguration of services; usually different third-party services (or libraries) are used in project and each needs to be configured independently. If a service is not configured properly, it might not be reachable for other services that are trying to communicate with it.</p>
+      </div>
+      <div id="interpretation_text">
+        <h3>Service Registration Issue</h3>
+        <p>The service might not have been (correctly) registered at the service registry component. If it isn't registered at the service registry component, then other services do not which address and port they should use to initiate communication with this service.</p>
+      </div>
+    </div>
+    <div id="interpretation_basis">
+      <h2>The folowing information could help with understanding of the detected non-conformance:</h2>
+      <div id="dynamic_ncf_code_evidences">
+        <h3>The following line of code should produce a call between admin-server and discovery-server but no such call was seen during run-time. </h3>
+        <div id="evidences">
+          <table border="1" id="evidence_table">
+            <tr>
+              <th>Type of evidence</th>
+              <th>File for evidence</th>
+              <th>Line number of evidence</th>
+            </tr>
+            <tr>
+              <td>Link</td>
+              <td>
+                <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12</a>
+              </td>
+              <td>12</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="dynamic_ncf_possible_sequences">
+        <h3>Sequences extracted from the static model that should produce run-time behaviour for link between admin-server and discovery-server</h3>
+        <div id="call_sequences">
+          <ul>
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-admin-server/src/main/resources/application.yml#L5">&#8594;</a> admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-admin-server/src/main/resources/application.yml#L5">&#8594;</a> admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server
+            </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server
+            </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/visits-service.yml#L14">&#8594;</a> tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server
+            </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server
+            </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server
+            </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/vets-service.yml#L22">&#8594;</a> tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="dynamic_ncf_occurred_sequences">
+        <h3>Sequences that occurred in the dynamic model that should produce run-time behaviour for link between admin-server and discovery-server</h3>
+        <div id="call_sequences">
+          <ul></ul>
+        </div>
+      </div>
+      <div id="call_details_occurred_sequences">
+        <h3>For the occurred sequences, these are the unique sequence of endpoints (parameters) that were used in the sequence</h3>
+      </div>
+      <div id="dynamic_model">
+        <h2>The following models can be used to inspect the (sequential) behavior of each component individually:</h2>
+        <div id="model">
+          <div id="model_svg">
+            <h3>Dynamic model learned for component admin-server:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.50.0 (20211204.2007)
+ -->
+<!-- Title: DFA Pages: 1 -->
+<svg id="dynamic_ncf_svg" width="564pt" height="735pt"
+ viewBox="0.00 0.00 563.50 735.14" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 731.14)">
+<title>DFA</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-731.14 559.5,-731.14 559.5,4 -4,4"/>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<polygon fill="#ff3030" stroke="black" stroke-width="3.22" points="127,-654.14 0,-654.14 0,-550.14 127,-550.14 127,-654.14"/>
+<text text-anchor="middle" x="63.5" y="-628.44" font-family="Times,serif" font-size="14.00">0 #24</text>
+<text text-anchor="middle" x="63.5" y="-613.44" font-family="Times,serif" font-size="14.00">fin: </text>
+<text text-anchor="middle" x="63.5" y="-598.44" font-family="Times,serif" font-size="14.00"> path: 0:24 , </text>
+<text text-anchor="middle" x="63.5" y="-583.44" font-family="Times,serif" font-size="14.00">24 0</text>
+<text text-anchor="middle" x="63.5" y="-568.44" font-family="Times,serif" font-size="14.00">[12,4,1,1,1,1,1,2,1,]</text>
+</g>
+<!-- 1 -->
+<g id="node3" class="node">
+<title>1</title>
+<ellipse fill="#ff3030" stroke="black" stroke-width="2.56" cx="63.5" cy="-425.45" rx="60.62" ry="58.88"/>
+<text text-anchor="middle" x="63.5" y="-451.75" font-family="Times,serif" font-size="14.00">1 #12</text>
+<text text-anchor="middle" x="63.5" y="-436.75" font-family="Times,serif" font-size="14.00">fin: 0:1 , </text>
+<text text-anchor="middle" x="63.5" y="-421.75" font-family="Times,serif" font-size="14.00"> path: 0:11 , </text>
+<text text-anchor="middle" x="63.5" y="-406.75" font-family="Times,serif" font-size="14.00">11 1</text>
+<text text-anchor="middle" x="63.5" y="-391.75" font-family="Times,serif" font-size="14.00">[9,2,]</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g id="edge2" class="edge">
+<title>0&#45;&gt;1</title>
+<path fill="none" stroke="black" stroke-width="3.22" d="M63.5,-549.67C63.5,-532.35 63.5,-512.75 63.5,-494.36"/>
+<polygon fill="black" stroke="black" stroke-width="3.22" points="67,-494.28 63.5,-484.28 60,-494.28 67,-494.28"/>
+<text text-anchor="middle" x="203.5" y="-520.94" font-family="Times,serif" font-size="14.00">in__8080.0__&gt;__200.0__get__user__admin&#45;server</text>
+<text text-anchor="middle" x="203.5" y="-505.94" font-family="Times,serif" font-size="14.00">12 </text>
+</g>
+<!-- I -->
+<g id="node2" class="node">
+<title>I</title>
+<ellipse fill="none" stroke="black" cx="63.5" cy="-709.14" rx="27" ry="18"/>
+<text text-anchor="middle" x="63.5" y="-705.44" font-family="Times,serif" font-size="14.00">I</text>
+</g>
+<!-- I&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>I&#45;&gt;0</title>
+<path fill="none" stroke="black" d="M63.5,-690.8C63.5,-683.36 63.5,-674.19 63.5,-664.6"/>
+<polygon fill="black" stroke="black" points="67,-664.51 63.5,-654.51 60,-664.51 67,-664.51"/>
+</g>
+<!-- 10 -->
+<g id="node4" class="node">
+<title>10</title>
+<ellipse fill="#ff3030" stroke="black" stroke-width="2.3" cx="63.5" cy="-242.07" rx="56.64" ry="58.88"/>
+<text text-anchor="middle" x="63.5" y="-268.37" font-family="Times,serif" font-size="14.00">10 #9</text>
+<text text-anchor="middle" x="63.5" y="-253.37" font-family="Times,serif" font-size="14.00">fin: 0:1 , </text>
+<text text-anchor="middle" x="63.5" y="-238.37" font-family="Times,serif" font-size="14.00"> path: 0:8 , </text>
+<text text-anchor="middle" x="63.5" y="-223.37" font-family="Times,serif" font-size="14.00">8 1</text>
+<text text-anchor="middle" x="63.5" y="-208.37" font-family="Times,serif" font-size="14.00">[8,]</text>
+</g>
+<!-- 1&#45;&gt;10 -->
+<g id="edge3" class="edge">
+<title>1&#45;&gt;10</title>
+<path fill="none" stroke="black" stroke-width="2.56" d="M63.5,-366.56C63.5,-348.97 63.5,-329.48 63.5,-311.28"/>
+<polygon fill="black" stroke="black" stroke-width="2.56" points="67,-311.03 63.5,-301.03 60,-311.03 67,-311.03"/>
+<text text-anchor="middle" x="236" y="-337.56" font-family="Times,serif" font-size="14.00">in__8080.0__&gt;applications__200.0__get__user__admin&#45;server</text>
+<text text-anchor="middle" x="236" y="-322.56" font-family="Times,serif" font-size="14.00">9 </text>
+</g>
+<!-- 23 -->
+<g id="node5" class="node">
+<title>23</title>
+<ellipse fill="#ff3030" stroke="black" stroke-width="2.2" cx="63.5" cy="-58.69" rx="56.64" ry="58.88"/>
+<text text-anchor="middle" x="63.5" y="-84.99" font-family="Times,serif" font-size="14.00">23 #8</text>
+<text text-anchor="middle" x="63.5" y="-69.99" font-family="Times,serif" font-size="14.00">fin: 0:1 , </text>
+<text text-anchor="middle" x="63.5" y="-54.99" font-family="Times,serif" font-size="14.00"> path: 0:7 , </text>
+<text text-anchor="middle" x="63.5" y="-39.99" font-family="Times,serif" font-size="14.00">7 1</text>
+<text text-anchor="middle" x="63.5" y="-24.99" font-family="Times,serif" font-size="14.00">[7,]</text>
+</g>
+<!-- 10&#45;&gt;23 -->
+<g id="edge4" class="edge">
+<title>10&#45;&gt;23</title>
+<path fill="none" stroke="black" stroke-width="2.3" d="M63.5,-183.18C63.5,-165.59 63.5,-146.1 63.5,-127.9"/>
+<polygon fill="black" stroke="black" stroke-width="2.3" points="67,-127.65 63.5,-117.65 60,-127.65 67,-127.65"/>
+<text text-anchor="middle" x="309.5" y="-154.18" font-family="Times,serif" font-size="14.00">in__8080.0__&gt;assets&gt;js&gt;chunk&#45;common.530a46a5.js__304.0__get__user__admin&#45;server</text>
+<text text-anchor="middle" x="309.5" y="-139.18" font-family="Times,serif" font-size="14.00">8 </text>
+</g>
+</g>
+</svg>
+
+          </div>
+        </div>
+        <div id="model">
+          <div id="model_svg">
+            <h3>Dynamic model learned for component discovery-server:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.50.0 (20211204.2007)
+ -->
+<!-- Title: DFA Pages: 1 -->
+<svg id="dynamic_ncf_svg" width="88pt" height="163pt"
+ viewBox="0.00 0.00 88.00 163.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 159)">
+<title>DFA</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-159 84,-159 84,4 -4,4"/>
+<!-- 0 -->
+<g id="node1" class="node">
+<title>0</title>
+<polygon fill="#ff3030" stroke="black" stroke-width="1.95" points="80,-83 0,-83 0,0 80,0 80,-83"/>
+<text text-anchor="middle" x="40" y="-67.8" font-family="Times,serif" font-size="14.00">0 #6</text>
+<text text-anchor="middle" x="40" y="-52.8" font-family="Times,serif" font-size="14.00">fin: </text>
+<text text-anchor="middle" x="40" y="-37.8" font-family="Times,serif" font-size="14.00"> path: 0:6 , </text>
+<text text-anchor="middle" x="40" y="-22.8" font-family="Times,serif" font-size="14.00">6 0</text>
+<text text-anchor="middle" x="40" y="-7.8" font-family="Times,serif" font-size="14.00">[6,]</text>
+</g>
+<!-- I -->
+<g id="node2" class="node">
+<title>I</title>
+<ellipse fill="none" stroke="black" cx="40" cy="-137" rx="27" ry="18"/>
+<text text-anchor="middle" x="40" y="-133.3" font-family="Times,serif" font-size="14.00">I</text>
+</g>
+<!-- I&#45;&gt;0 -->
+<g id="edge1" class="edge">
+<title>I&#45;&gt;0</title>
+<path fill="none" stroke="black" d="M40,-118.85C40,-111.49 40,-102.48 40,-93.25"/>
+<polygon fill="black" stroke="black" points="43.5,-93.23 40,-83.23 36.5,-93.23 43.5,-93.23"/>
+</g>
+</g>
+</svg>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

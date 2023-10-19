@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Model Non-conformance Interpretation</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="non-conformance_type">
+      <h1>Non-conformance type: dynamic</h1>
+      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two components during run-time.</p>
+    </div>
+    <div id="involved_components">
+      <h2>Involved components</h2>
+      <ul>
+        <li>config-server</li>
+        <li>service-registry</li>
+      </ul>
+    </div>
+    <div id="interpretations">
+      <h2>Potential interpretations for the non-conformance</h2>
+      <div id="interpretation_text">
+        <h3>Unused / Unreachable Code</h3>
+        <p>The line of code that is responsible for triggering a flow of communication between the two component is not reachable or the line is not used at all in the implementation. It could be the case that the function that should call this line is not implemented, commented out or wrapped in a code-block (e.g. if-else statement or switch statement) that is never executed.</p>
+      </div>
+      <div id="interpretation_text">
+        <h3>Misconfiguration of Service</h3>
+        <p>One of the most common causes for failures in microservice systems is misconfiguration of services; usually different third-party services (or libraries) are used in project and each needs to be configured independently. If a service is not configured properly, it might not be reachable for other services that are trying to communicate with it.</p>
+      </div>
+      <div id="interpretation_text">
+        <h3>Service Registration Issue</h3>
+        <p>The service might not have been (correctly) registered at the service registry component. If it isn't registered at the service registry component, then other services do not which address and port they should use to initiate communication with this service.</p>
+      </div>
+    </div>
+    <div id="interpretation_basis">
+      <h2>The folowing information could help with understanding of the detected non-conformance:</h2>
+      <div id="dynamic_ncf_code_evidences">
+        <h3>The following line of code should produce a call between config-server and service-registry but no such call was seen during run-time. </h3>
+        <div id="evidences">
+          <table border="1" id="evidence_table">
+            <tr>
+              <th>Type of evidence</th>
+              <th>File for evidence</th>
+              <th>Line number of evidence</th>
+            </tr>
+            <tr>
+              <td>Link</td>
+              <td>
+                <a href="https://github.com/shabbirdwd53/springboot-microservice/blob/master/cloud-config-server/pom.xml#L29">https://github.com/shabbirdwd53/springboot-microservice/blob/master/cloud-config-server/pom.xml#L29</a>
+              </td>
+              <td>29</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="dynamic_ncf_missing_dynamic_model">
+        <p>No data run-time data was found for config_server and service_registry. Are these perhaps external components?</p>
+      </div>
+    </div>
+  </body>
+</html>
