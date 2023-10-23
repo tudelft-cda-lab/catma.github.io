@@ -7,10 +7,10 @@
   <body>
     <div id="non-conformance_type">
       <h1>Non-conformance type: dynamic</h1>
-      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two components during run-time.</p>
+      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two services at runtime.</p>
     </div>
-    <div id="involved_components">
-      <h2>Involved components</h2>
+    <div id="involved_services">
+      <h2>Involved services</h2>
       <ul>
         <li>order</li>
         <li>turbine</li>
@@ -34,7 +34,7 @@
     <div id="interpretation_basis">
       <h2>The folowing information could help with understanding of the detected non-conformance:</h2>
       <div id="dynamic_ncf_code_evidences">
-        <h3>The following line of code should produce a call between order and turbine but no such call was seen during run-time. </h3>
+        <h3>The following line of code should produce a call between order and turbine but no such call was seen during dynamic. </h3>
         <div id="evidences">
           <table border="1" id="evidence_table">
             <tr>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div id="dynamic_ncf_possible_sequences">
-        <h3>Sequences extracted from the static model that should produce run-time behaviour for link between order and turbine</h3>
+        <h3>Sequences extracted from the static model that should produce dynamic behavior for link between order and turbine</h3>
         <div id="call_sequences">
           <ul>
             <li>zuul &#8594;(implicit) user &#8594;(implicit) zuul 
@@ -65,7 +65,28 @@
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
             </li>
             <li>order 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L86">&#8594;</a> catalog 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/OrderApp.java#L6">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-turbine-server/src/main/java/com/ewolff/microservice/turbine/TurbineApplication.java#L5">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>user &#8594;(implicit) zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul &#8594;(implicit) user &#8594;(implicit) zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>catalog 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-catalog/src/main/java/com/ewolff/microservice/catalog/CatalogApp.java#L8">&#8594;</a> eureka 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
@@ -75,7 +96,22 @@
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
             </li>
-            <li>user &#8594;(implicit) zuul 
+            <li>customer 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-customer/src/main/resources/application.properties#L5">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L7">&#8594;</a> customer 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-customer/src/main/resources/application.properties#L5">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>turbine 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-turbine-server/src/main/java/com/ewolff/microservice/turbine/TurbineApplication.java#L5">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
             </li>
@@ -85,19 +121,8 @@
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
             </li>
             <li>zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/OrderApp.java#L6">&#8594;</a> eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul &#8594;(implicit) user &#8594;(implicit) zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>customer 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-customer/src/main/resources/application.properties#L5">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L27">&#8594;</a> catalog 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-catalog/src/main/java/com/ewolff/microservice/catalog/CatalogApp.java#L8">&#8594;</a> eureka 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
@@ -110,40 +135,15 @@
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
             </li>
             <li>order 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L86">&#8594;</a> catalog 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-catalog/src/main/java/com/ewolff/microservice/catalog/CatalogApp.java#L8">&#8594;</a> eureka 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
+              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
+            </li>
+            <li>zuul 
+              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/OrderApp.java#L6">&#8594;</a> eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>catalog 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-catalog/src/main/java/com/ewolff/microservice/catalog/CatalogApp.java#L8">&#8594;</a> eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L7">&#8594;</a> customer 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-customer/src/main/resources/application.properties#L5">&#8594;</a> eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-turbine-server/src/main/java/com/ewolff/microservice/turbine/TurbineApplication.java#L5">&#8594;</a> eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>turbine 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-turbine-server/src/main/java/com/ewolff/microservice/turbine/TurbineApplication.java#L5">&#8594;</a> eureka 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
-              <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
-            </li>
-            <li>zuul 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L27">&#8594;</a> catalog 
-              <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-catalog/src/main/java/com/ewolff/microservice/catalog/CatalogApp.java#L8">&#8594;</a> eureka 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/bootstrap.yml#L11">&#8594;</a> zuul 
               <a href="https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/resources/static/index.html#L39">&#8594;</a> order 
               <a href="https://github.com/ewolff/microservice/blob/99d9d07d1b68285d2ceefd8a811f31788ee43d75/microservice-demo/microservice-demo-order/src/main/java/com/ewolff/microservice/order/clients/CatalogClient.java#L73">&#8594;</a> turbine
@@ -152,7 +152,7 @@
         </div>
       </div>
       <div id="dynamic_ncf_occurred_sequences">
-        <h3>Sequences that occurred in the dynamic model that should produce run-time behaviour for link between order and turbine</h3>
+        <h3>Sequences that occurred in the dynamic model that should produce dynamic behavior for link between order and turbine</h3>
         <div id="call_sequences">
           <ul>
             <li>zuul 
@@ -171,30 +171,30 @@
         <ul>
           <li>Sequence: zuul &#8594; order &#8594; turbine</li>
           <ul>
-            <li>Call started with &quot;/5&quot;. </li>
-            <li>Call started with &quot;/18&quot;. </li>
-            <li>Call started with &quot;/line&quot;. </li>
             <li>Call started with &quot;/&quot;. </li>
-            <li>Call started with &quot;/form.html&quot;. </li>
-            <li>Call started with &quot;/3&quot;. </li>
+            <li>Call started with &quot;/line&quot;. </li>
+            <li>Call started with &quot;/5&quot;. </li>
             <li>Call started with &quot;/11&quot;. </li>
+            <li>Call started with &quot;/3&quot;. </li>
+            <li>Call started with &quot;/18&quot;. </li>
+            <li>Call started with &quot;/form.html&quot;. </li>
           </ul>
         </ul>
         <ul>
           <li>Sequence: user &#8594; zuul &#8594; order &#8594; turbine</li>
           <ul>
-            <li>Call started with &quot;/order/line&quot;. Then followed by call with &quot;/line&quot;. </li>
-            <li>Call started with &quot;/order/18&quot;. Then followed by call with &quot;/18&quot;. </li>
             <li>Call started with &quot;/order/&quot;. Then followed by call with &quot;/&quot;. </li>
+            <li>Call started with &quot;/order/18&quot;. Then followed by call with &quot;/18&quot;. </li>
             <li>Call started with &quot;/order/11&quot;. Then followed by call with &quot;/11&quot;. </li>
+            <li>Call started with &quot;/order/line&quot;. Then followed by call with &quot;/line&quot;. </li>
           </ul>
         </ul>
       </div>
       <div id="dynamic_model">
-        <h2>The following models can be used to inspect the (sequential) behavior of each component individually:</h2>
+        <h2>The following models can be used to inspect the (sequential) behavior of each service individually:</h2>
         <div id="model">
           <div id="model_svg">
-            <h3>Dynamic model learned for component order:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <h3>Dynamic model learned for service order:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.50.0 (20211204.2007)
@@ -1262,7 +1262,7 @@
         </div>
         <div id="model">
           <div id="model_svg">
-            <h3>Dynamic model learned for component turbine:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <h3>Dynamic model learned for service turbine:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.50.0 (20211204.2007)

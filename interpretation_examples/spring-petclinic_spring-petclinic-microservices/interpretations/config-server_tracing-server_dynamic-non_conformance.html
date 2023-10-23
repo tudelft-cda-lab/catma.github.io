@@ -7,10 +7,10 @@
   <body>
     <div id="non-conformance_type">
       <h1>Non-conformance type: dynamic</h1>
-      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two components during run-time.</p>
+      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two services at runtime.</p>
     </div>
-    <div id="involved_components">
-      <h2>Involved components</h2>
+    <div id="involved_services">
+      <h2>Involved services</h2>
       <ul>
         <li>config-server</li>
         <li>tracing-server</li>
@@ -34,7 +34,7 @@
     <div id="interpretation_basis">
       <h2>The folowing information could help with understanding of the detected non-conformance:</h2>
       <div id="dynamic_ncf_code_evidences">
-        <h3>The following line of code should produce a call between config-server and tracing-server but no such call was seen during run-time. </h3>
+        <h3>The following line of code should produce a call between config-server and tracing-server but no such call was seen during dynamic. </h3>
         <div id="evidences">
           <table border="1" id="evidence_table">
             <tr>
@@ -53,7 +53,11 @@
         </div>
       </div>
       <div id="dynamic_ncf_missing_dynamic_model">
-        <p>No data run-time data was found for config_server and tracing_server. Are these perhaps external components?</p>
+        <p>No data dynamic data was found for config-server and tracing-server. Is one of involved services perhaps an external service?</p>
+      </div>
+      <div id="dynamic_model">
+        <h2>The following models can be used to inspect the (sequential) behavior of each service individually:</h2>
+        <p>No dynamic model was found for either of the services.</p>
       </div>
     </div>
   </body>

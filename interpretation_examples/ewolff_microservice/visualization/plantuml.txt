@@ -1,0 +1,35 @@
+
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+
+digraph dfd2{
+    node[shape=record]
+        customer [label = customer shape = Mrecord];
+        catalog [label = catalog shape = Mrecord];
+        turbine [label = turbine shape = Mrecord];
+        eureka [label = eureka shape = Mrecord];
+        user [label = user shape = Mrecord];
+        zuul [label = zuul shape = Mrecord];
+        order [label = order shape = Mrecord];
+
+        zuul -> order [color = "black"]
+        user -> zuul [color = "black"]
+        zuul -> catalog [color = "black"]
+        customer -> eureka [color = "black"]
+        turbine -> eureka [color = "black"]
+        order -> eureka [color = "black"]
+        eureka -> zuul [color = "black"]
+        zuul -> user [color = "black"]
+        order -> catalog [color = "black"]
+        zuul -> customer [color = "black"]
+        order -> customer [color = "black"]
+        catalog -> eureka [color = "black"]
+        user -> eureka [color = "red"]
+        user -> turbine [color = "red"]
+        order -> turbine [color = "darkgreen"]
+}
+@enduml

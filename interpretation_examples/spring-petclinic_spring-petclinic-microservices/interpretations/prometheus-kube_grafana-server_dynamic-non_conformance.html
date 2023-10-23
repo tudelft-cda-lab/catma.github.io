@@ -7,10 +7,10 @@
   <body>
     <div id="non-conformance_type">
       <h1>Non-conformance type: dynamic</h1>
-      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two components during run-time.</p>
+      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two services at runtime.</p>
     </div>
-    <div id="involved_components">
-      <h2>Involved components</h2>
+    <div id="involved_services">
+      <h2>Involved services</h2>
       <ul>
         <li>prometheus-kube</li>
         <li>grafana-server</li>
@@ -34,7 +34,7 @@
     <div id="interpretation_basis">
       <h2>The folowing information could help with understanding of the detected non-conformance:</h2>
       <div id="dynamic_ncf_code_evidences">
-        <h3>The following line of code should produce a call between prometheus-kube and grafana-server but no such call was seen during run-time. </h3>
+        <h3>The following line of code should produce a call between prometheus-kube and grafana-server but no such call was seen during dynamic. </h3>
         <div id="evidences">
           <table border="1" id="evidence_table">
             <tr>
@@ -53,48 +53,12 @@
         </div>
       </div>
       <div id="dynamic_ncf_possible_sequences">
-        <h3>Sequences extracted from the static model that should produce run-time behaviour for link between prometheus-kube and grafana-server</h3>
+        <h3>Sequences extracted from the static model that should produce dynamic behavior for link between prometheus-kube and grafana-server</h3>
         <div id="call_sequences">
           <ul>
-            <li>vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/vets-service.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>admin_server 
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-admin-server/src/main/resources/application.yml#L5">&#8594;</a> admin_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L11">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>user_service &#8594;(implicit) api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>github_repository 
@@ -103,144 +67,33 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L11">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+            <li>config_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/resources/application.yml#L11">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>tracing_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/resources/application.yml#L11">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-discovery-server/src/main/resources/application.yml#L5">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>config_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>config_server 
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/vets-service.yml#L9">&#8594;</a> vets_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>config_server 
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/resources/application.yml#L11">&#8594;</a> visits_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-admin-server/src/main/resources/application.yml#L5">&#8594;</a> admin_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L11">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/resources/application.yml#L11">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/visits-service.yml#L14">&#8594;</a> tracing_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>github_repository 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>config_server 
@@ -248,36 +101,80 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L11">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/vets-service.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>user_service &#8594;(implicit) api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
             <li>user_service &#8594;(implicit) api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/vets-service.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+            <li>api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-admin-server/src/main/resources/application.yml#L5">&#8594;</a> admin_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+            <li>discovery_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+            <li>user_service &#8594;(implicit) api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>github_repository 
@@ -287,26 +184,65 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>user_service &#8594;(implicit) api_gateway 
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/resources/application.yml#L11">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/resources/application.yml#L11">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>user_service &#8594;(implicit) api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>admin_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>user_service &#8594;(implicit) api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
+            <li>api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>tracing_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
@@ -321,6 +257,54 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
+            <li>api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-discovery-server/src/main/resources/application.yml#L5">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/resources/application.yml#L11">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/vets-service.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
             <li>config_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/resources/application.yml#L11">&#8594;</a> visits_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
@@ -328,80 +312,58 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
+            <li>api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
             <li>customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/customers-service.yml#L14">&#8594;</a> tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-discovery-server/src/main/resources/application.yml#L5">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>tracing_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+            <li>github_repository 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-config-server/src/main/resources/application.yml#L7">&#8594;</a> config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L35">&#8594;</a> api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>admin_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>user_service &#8594;(implicit) api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>admin_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/resources/application.yml#L11">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>config_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-discovery-server/src/main/resources/application.yml#L5">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>vets_service 
@@ -411,52 +373,82 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+            <li>user_service &#8594;(implicit) api_gateway &#8594;(implicit) user_service &#8594;(implicit) api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/api-gateway.yml#L26">&#8594;</a> tracing_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>tracing_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>admin_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-admin-server/src/main/resources/application.yml#L5">&#8594;</a> admin_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/admin-server.yml#L12">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>config_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L15">&#8594;</a> tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>config_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-discovery-server/src/main/resources/application.yml#L5">&#8594;</a> discovery_server 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-visits-service/src/main/java/org/springframework/samples/petclinic/visits/VisitsServiceApplication.java#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>tracing_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> customers_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L21">&#8594;</a> prometheus_kube 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
+            </li>
+            <li>vets_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-vets-service/pom.xml#L62">&#8594;</a> discovery_server 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
+              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
             <li>config_server 
@@ -464,38 +456,24 @@
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> vets_service 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L31">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>tracing_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/tracing-server.yml#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L16">&#8594;</a> prometheus_kube 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
-            </li>
-            <li>customers_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomersServiceApplication.java#L20">&#8594;</a> discovery_server 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/ApiGatewayApplication.java#L26">&#8594;</a> api_gateway 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L9">&#8594;</a> visits_service 
-              <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/prometheus/Dockerfile#L26">&#8594;</a> prometheus_kube 
               <a href="https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/docker/grafana/provisioning/datasources/all.yml#L10">&#8594;</a> grafana_server
             </li>
           </ul>
         </div>
       </div>
       <div id="dynamic_ncf_occurred_sequences">
-        <h3>Sequences that occurred in the dynamic model that should produce run-time behaviour for link between prometheus-kube and grafana-server</h3>
-        <div id="call_sequences">
-          <ul></ul>
-        </div>
+        <h3>Sequences that occurred in the dynamic model that should produce dynamic behavior for link between prometheus-kube and grafana-server</h3>
+        <p>No sequences were found in the dynamic model that actually produced dynamic behavior for the link between prometheus-kube and grafana-server</p>
       </div>
       <div id="call_details_occurred_sequences">
         <h3>For the occurred sequences, these are the unique sequence of endpoints (parameters) that were used in the sequence</h3>
+        <p>No sequences were found in the dynamic model and thus no unique sequences of endpoints could be extracted.</p>
       </div>
       <div id="dynamic_model">
-        <h2>The following models can be used to inspect the (sequential) behavior of each component individually:</h2>
+        <h2>The following models can be used to inspect the (sequential) behavior of each service individually:</h2>
         <div id="model">
           <div id="model_svg">
-            <h3>Dynamic model learned for component prometheus-kube:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <h3>Dynamic model learned for service prometheus-kube:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.50.0 (20211204.2007)
@@ -2929,7 +2907,7 @@
         </div>
         <div id="model">
           <div id="model_svg">
-            <h3>Dynamic model learned for component grafana-server:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <h3>Dynamic model learned for service grafana-server:</h3><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.50.0 (20211204.2007)

@@ -1,0 +1,55 @@
+
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+
+digraph dfd2{
+    node[shape=record]
+        api_gateway [label = api_gateway shape = Mrecord];
+        admin_server [label = admin_server shape = Mrecord];
+        discovery_server [label = discovery_server shape = Mrecord];
+        grafana_server [label = grafana_server shape = Mrecord];
+        customers_service [label = customers_service shape = Mrecord];
+        config_server [label = config_server shape = Mrecord];
+        github_repository [label = github_repository shape = Mrecord];
+        tracing_server [label = tracing_server shape = Mrecord];
+        vets_service [label = vets_service shape = Mrecord];
+        user_service [label = user_service shape = Mrecord];
+        prometheus_kube [label = prometheus_kube shape = Mrecord];
+        visits_service [label = visits_service shape = Mrecord];
+
+        api_gateway -> vets_service [color = "black"]
+        api_gateway -> customers_service [color = "black"]
+        api_gateway -> visits_service [color = "black"]
+        prometheus_kube -> prometheus_kube [color = "red"]
+        api_gateway -> prometheus_kube [color = "darkgreen"]
+        config_server -> api_gateway [color = "darkgreen"]
+        api_gateway -> tracing_server [color = "darkgreen"]
+        config_server -> admin_server [color = "darkgreen"]
+        vets_service -> discovery_server [color = "darkgreen"]
+        config_server -> tracing_server [color = "darkgreen"]
+        api_gateway -> user_service [color = "darkgreen"]
+        visits_service -> tracing_server [color = "darkgreen"]
+        config_server -> visits_service [color = "darkgreen"]
+        visits_service -> discovery_server [color = "darkgreen"]
+        config_server -> discovery_server [color = "darkgreen"]
+        customers_service -> prometheus_kube [color = "darkgreen"]
+        config_server -> customers_service [color = "darkgreen"]
+        vets_service -> prometheus_kube [color = "darkgreen"]
+        visits_service -> prometheus_kube [color = "darkgreen"]
+        customers_service -> discovery_server [color = "darkgreen"]
+        discovery_server -> api_gateway [color = "darkgreen"]
+        user_service -> api_gateway [color = "darkgreen"]
+        prometheus_kube -> grafana_server [color = "darkgreen"]
+        admin_server -> prometheus_kube [color = "darkgreen"]
+        github_repository -> config_server [color = "darkgreen"]
+        vets_service -> tracing_server [color = "darkgreen"]
+        admin_server -> discovery_server [color = "darkgreen"]
+        config_server -> vets_service [color = "darkgreen"]
+        tracing_server -> discovery_server [color = "darkgreen"]
+        customers_service -> tracing_server [color = "darkgreen"]
+}
+@enduml

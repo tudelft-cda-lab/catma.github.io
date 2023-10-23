@@ -1,0 +1,71 @@
+
+@startuml
+skinparam monochrome true
+skinparam ClassBackgroundColor White
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+
+
+digraph dfd2{
+    node[shape=record]
+        turbine_stream [label = turbine_stream shape = Mrecord];
+        auth_mongodb [label = auth_mongodb shape = Mrecord];
+        rabbitmq [label = rabbitmq shape = Mrecord];
+        mail_server [label = mail_server shape = Mrecord];
+        statistics_service [label = statistics_service shape = Mrecord];
+        registry [label = registry shape = Mrecord];
+        notification_service [label = notification_service shape = Mrecord];
+        gateway [label = gateway shape = Mrecord];
+        statistics_mongodb [label = statistics_mongodb shape = Mrecord];
+        account_mongodb [label = account_mongodb shape = Mrecord];
+        notification_mongodb [label = notification_mongodb shape = Mrecord];
+        account_service [label = account_service shape = Mrecord];
+        monitoring_service [label = monitoring_service shape = Mrecord];
+        auth_service [label = auth_service shape = Mrecord];
+        config_server [label = config_server shape = Mrecord];
+        user [label = user shape = Mrecord];
+        external_website [label = external_website shape = Mrecord];
+
+        config_server -> gateway [color = "black"]
+        config_server -> registry [color = "black"]
+        gateway -> user [color = "black"]
+        config_server -> notification_service [color = "black"]
+        user -> gateway [color = "black"]
+        gateway -> account_service [color = "black"]
+        registry -> config_server [color = "black"]
+        config_server -> account_service [color = "black"]
+        gateway -> notification_service [color = "black"]
+        auth_service -> account_service [color = "black"]
+        account_service -> auth_service [color = "black"]
+        config_server -> auth_service [color = "black"]
+        account_service -> statistics_service [color = "black"]
+        account_service -> registry [color = "black"]
+        turbine_stream -> registry [color = "black"]
+        gateway -> auth_service [color = "black"]
+        auth_service -> notification_service [color = "black"]
+        statistics_service -> registry [color = "black"]
+        config_server -> monitoring_service [color = "black"]
+        notification_service -> registry [color = "black"]
+        auth_service -> registry [color = "black"]
+        auth_service -> statistics_service [color = "black"]
+        config_server -> statistics_service [color = "black"]
+        turbine_stream -> monitoring_service [color = "black"]
+        registry -> gateway [color = "black"]
+        gateway -> statistics_service [color = "black"]
+        config_server -> turbine_stream [color = "black"]
+        registry -> registry [color = "red"]
+        user -> monitoring_service [color = "red"]
+        user -> registry [color = "red"]
+        notification_mongodb -> notification_service [color = "darkgreen"]
+        auth_mongodb -> auth_service [color = "darkgreen"]
+        rabbitmq -> turbine_stream [color = "darkgreen"]
+        statistics_service -> rabbitmq [color = "darkgreen"]
+        statistics_mongodb -> statistics_service [color = "darkgreen"]
+        notification_service -> rabbitmq [color = "darkgreen"]
+        account_service -> rabbitmq [color = "darkgreen"]
+        external_website -> statistics_service [color = "darkgreen"]
+        account_mongodb -> account_service [color = "darkgreen"]
+        notification_service -> mail_server [color = "darkgreen"]
+        notification_service -> account_service [color = "darkgreen"]
+}
+@enduml

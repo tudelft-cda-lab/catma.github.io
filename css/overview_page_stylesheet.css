@@ -9,3 +9,11 @@ h1 {
     font-size: medium;
     font-weight: bold;
 }
+
+#ncf_visualization {
+    display: inline-block;
+    padding-left: 500px;
+    margin: 2px;
+    font-size: medium;
+    font-weight: bold;
+}

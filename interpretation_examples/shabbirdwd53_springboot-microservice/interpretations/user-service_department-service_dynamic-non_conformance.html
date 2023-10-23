@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Model Non-conformance Interpretation</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="non-conformance_type">
+      <h1>Non-conformance type: dynamic</h1>
+      <p>This is a non-conformance of which there was code evidence collected for this link, but no calls were detected between the two services at runtime.</p>
+    </div>
+    <div id="involved_services">
+      <h2>Involved services</h2>
+      <ul>
+        <li>user-service</li>
+        <li>department-service</li>
+      </ul>
+    </div>
+    <div id="interpretations">
+      <h2>Potential interpretations for the non-conformance</h2>
+      <div id="interpretation_text">
+        <h3>Unused / Unreachable Code</h3>
+        <p>The line of code that is responsible for triggering a flow of communication between the two component is not reachable or the line is not used at all in the implementation. It could be the case that the function that should call this line is not implemented, commented out or wrapped in a code-block (e.g. if-else statement or switch statement) that is never executed.</p>
+      </div>
+      <div id="interpretation_text">
+        <h3>Misconfiguration of Service</h3>
+        <p>One of the most common causes for failures in microservice systems is misconfiguration of services; usually different third-party services (or libraries) are used in project and each needs to be configured independently. If a service is not configured properly, it might not be reachable for other services that are trying to communicate with it.</p>
+      </div>
+      <div id="interpretation_text">
+        <h3>Service Registration Issue</h3>
+        <p>The service might not have been (correctly) registered at the service registry component. If it isn't registered at the service registry component, then other services do not which address and port they should use to initiate communication with this service.</p>
+      </div>
+    </div>
+    <div id="interpretation_basis">
+      <h2>The folowing information could help with understanding of the detected non-conformance:</h2>
+      <div id="dynamic_ncf_code_evidences">
+        <h3>The following line of code should produce a call between user-service and department-service but no such call was seen during dynamic. </h3>
+        <div id="evidences">
+          <table border="1" id="evidence_table">
+            <tr>
+              <th>Type of evidence</th>
+              <th>File for evidence</th>
+              <th>Line number of evidence</th>
+            </tr>
+            <tr>
+              <td>Link</td>
+              <td>
+                <a href="https://github.com/shabbirdwd53/Springboot-Microservice/blob/main/user-service/src/main/java/com/dailycodebuffer/user/service/UserService.java#L33">https://github.com/shabbirdwd53/Springboot-Microservice/blob/main/user-service/src/main/java/com/dailycodebuffer/user/service/UserService.java#L33</a>
+              </td>
+              <td>33</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="dynamic_ncf_missing_dynamic_model">
+        <p>No data dynamic data was found for user-service and department-service. Is one of involved services perhaps an external service?</p>
+      </div>
+      <div id="dynamic_model">
+        <h2>The following models can be used to inspect the (sequential) behavior of each service individually:</h2>
+        <p>No dynamic model was found for either of the services.</p>
+      </div>
+    </div>
+  </body>
+</html>

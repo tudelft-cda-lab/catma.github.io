@@ -4,10 +4,11 @@
                 background-color: #f1f1f1;
             }
 
-            #non-conformance_type, #call_sequences, #dynamic_model, #involved_components, #interpretations, #interpretation_text, #interpretation_basis {
+            #non-conformance_type, #call_sequences, #dynamic_model, #involved_services, #interpretations, #interpretation_text, #interpretation_basis {
                 background-color: #ffffff;
                 padding: 20px;
                 margin: 20px;
+                text-align: justify;
             }
 
             #dynamic_ncf_code_evidences, #dynamic_ncf_possible_sequences, #dynamic_ncf_occurred_sequences, #static_ncf_dynamic_model_calls, #call_details_occurred_sequences, #model {
@@ -32,9 +33,18 @@
             }
 
             #static_ncf_svg {
-                width: 70%;
-                height: 800px;
+                width: 100%;
+                height: 100%;
                 display: inline-block;
             }
 
+            h2, h3 {
+                margin: 5px;
+            }
+
+            #dynamic_ncf_missing_dynamic_model {
+                background-color: #ffffff;
+                padding: 10px;
+                margin: 10px;
+            }
             
