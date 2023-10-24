@@ -26,7 +26,8 @@ def generate_overview_page_for_project(output_folder_path, project_name: str, pr
         h1(f'Non-conformance visualization for {project_name}')
         with div(id='ncf_visualization'):
             visualize_ncf_path = project_interpretation_folder_path.split('interpretations')[0] + 'visualization/'
-            img(src=f'{visualize_ncf_path}plantuml.png')
+            with div(id='arch_model_viz'):
+                img(src=f'{visualize_ncf_path}plantuml.png')
         h1(f'Overview of interpretations generated for {project_name}')
         with div(id='interpretations_list'):
             for page in project_interpretation_pages:

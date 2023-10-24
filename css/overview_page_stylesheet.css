@@ -12,8 +12,9 @@ h1 {
 
 #ncf_visualization {
     display: inline-block;
-    padding-left: 500px;
-    margin: 2px;
+    width: 100%;
     font-size: medium;
     font-weight: bold;
+    justify-content: center;
+    text-align: center;
 }
