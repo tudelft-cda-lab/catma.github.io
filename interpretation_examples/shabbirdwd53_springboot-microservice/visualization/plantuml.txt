@@ -8,33 +8,33 @@ skinparam defaultFontSize 11
 
 digraph dfd2{
     node[shape=record]
-        user_service [label = user_service shape = Mrecord];
-        config_server [label = config_server shape = Mrecord];
         github_repository [label = github_repository shape = Mrecord];
-        user [label = user shape = Mrecord];
-        gateway [label = gateway shape = Mrecord];
-        zipkin_server [label = zipkin_server shape = Mrecord];
         hystrix_dashboard [label = hystrix_dashboard shape = Mrecord];
-        service_registry [label = service_registry shape = Mrecord];
+        user_service [label = user_service shape = Mrecord];
+        gateway [label = gateway shape = Mrecord];
         department_service [label = department_service shape = Mrecord];
+        zipkin_server [label = zipkin_server shape = Mrecord];
+        service_registry [label = service_registry shape = Mrecord];
+        user [label = user shape = Mrecord];
+        config_server [label = config_server shape = Mrecord];
 
         user -> gateway [color = "black"]
         gateway -> user [color = "black"]
-        hystrix_dashboard -> service_registry [color = "darkgreen"]
-        config_server -> user_service [color = "darkgreen"]
-        department_service -> zipkin_server [color = "darkgreen"]
-        config_server -> gateway [color = "darkgreen"]
-        config_server -> department_service [color = "darkgreen"]
-        service_registry -> gateway [color = "darkgreen"]
-        gateway -> department_service [color = "darkgreen"]
-        github_repository -> config_server [color = "darkgreen"]
-        user_service -> service_registry [color = "darkgreen"]
-        user_service -> zipkin_server [color = "darkgreen"]
-        zipkin_server -> hystrix_dashboard [color = "darkgreen"]
-        gateway -> user_service [color = "darkgreen"]
-        department_service -> service_registry [color = "darkgreen"]
-        user_service -> department_service [color = "darkgreen"]
-        config_server -> service_registry [color = "darkgreen"]
-        config_server -> hystrix_dashboard [color = "darkgreen"]
+        gateway -> user_service [color = "#0072B2", style = "dotted"]
+        user_service -> service_registry [color = "#0072B2", style = "dotted"]
+        hystrix_dashboard -> service_registry [color = "#0072B2", style = "dotted"]
+        user_service -> zipkin_server [color = "#0072B2", style = "dotted"]
+        gateway -> department_service [color = "#0072B2", style = "dotted"]
+        config_server -> user_service [color = "#0072B2", style = "dotted"]
+        config_server -> hystrix_dashboard [color = "#0072B2", style = "dotted"]
+        user_service -> department_service [color = "#0072B2", style = "dotted"]
+        department_service -> service_registry [color = "#0072B2", style = "dotted"]
+        zipkin_server -> hystrix_dashboard [color = "#0072B2", style = "dotted"]
+        config_server -> gateway [color = "#0072B2", style = "dotted"]
+        github_repository -> config_server [color = "#0072B2", style = "dotted"]
+        config_server -> service_registry [color = "#0072B2", style = "dotted"]
+        department_service -> zipkin_server [color = "#0072B2", style = "dotted"]
+        service_registry -> gateway [color = "#0072B2", style = "dotted"]
+        config_server -> department_service [color = "#0072B2", style = "dotted"]
 }
 @enduml

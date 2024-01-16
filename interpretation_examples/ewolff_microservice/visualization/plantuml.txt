@@ -8,28 +8,28 @@ skinparam defaultFontSize 11
 
 digraph dfd2{
     node[shape=record]
-        customer [label = customer shape = Mrecord];
-        catalog [label = catalog shape = Mrecord];
+        user [label = user shape = Mrecord];
         turbine [label = turbine shape = Mrecord];
         eureka [label = eureka shape = Mrecord];
-        user [label = user shape = Mrecord];
-        zuul [label = zuul shape = Mrecord];
         order [label = order shape = Mrecord];
+        catalog [label = catalog shape = Mrecord];
+        zuul [label = zuul shape = Mrecord];
+        customer [label = customer shape = Mrecord];
 
-        zuul -> order [color = "black"]
         user -> zuul [color = "black"]
-        zuul -> catalog [color = "black"]
-        customer -> eureka [color = "black"]
-        turbine -> eureka [color = "black"]
-        order -> eureka [color = "black"]
         eureka -> zuul [color = "black"]
-        zuul -> user [color = "black"]
+        order -> customer [color = "black"]
         order -> catalog [color = "black"]
         zuul -> customer [color = "black"]
-        order -> customer [color = "black"]
+        zuul -> catalog [color = "black"]
+        zuul -> order [color = "black"]
+        customer -> eureka [color = "black"]
+        turbine -> eureka [color = "black"]
+        zuul -> user [color = "black"]
         catalog -> eureka [color = "black"]
-        user -> eureka [color = "red"]
-        user -> turbine [color = "red"]
-        order -> turbine [color = "darkgreen"]
+        order -> eureka [color = "black"]
+        user -> eureka [color = "#D55E00", style = "dashed"]
+        user -> turbine [color = "#D55E00", style = "dashed"]
+        order -> turbine [color = "#0072B2", style = "dotted"]
 }
 @enduml
